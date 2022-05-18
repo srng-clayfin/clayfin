@@ -26,9 +26,7 @@ export const Products = () =>
        
     },[]);
 
-    console.log(flag)
-
-    //  {p.value.title !== undefined ? 
+    // console.log(flag)
 
     return(
         <>

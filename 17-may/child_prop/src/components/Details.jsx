@@ -2,10 +2,7 @@ import React from "react"
 
 export const Details = (p) =>
 {
-    console.log(p.value)
-
-    //  {isLoggedIn ? 'currently' : 'not'}</b> logged in.    </div>
-
+    // console.log(p.value)
     return(
         <>
         {p.value.title !== undefined ? 
