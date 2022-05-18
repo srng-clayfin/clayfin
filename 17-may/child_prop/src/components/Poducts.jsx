@@ -9,6 +9,7 @@ export const Products = () =>
 {
 
     const [data , setData ] = useState([])
+    const [flag , setFlag ] = useState(0)
     const [pdetails , setPdetails ] = useState({})
 
     const fetchData = () =>
@@ -18,19 +19,26 @@ export const Products = () =>
         .then((d) => setData(d))
         .catch((e) => console.log(e))
     }
-
-
     // console.log(data)
-
 
     useEffect(()=> {
         fetchData();
        
     },[]);
 
+    console.log(flag)
+
+    //  {p.value.title !== undefined ? 
+
     return(
         <>
             <Details value={pdetails} />
+            <br /><br />
+            {flag !== 0 ? 
+                <div style={{height: "130px"}}>
+                </div>
+                : ""                
+            }
             <div className="main">
                 {data.map((p) =>
                 
@@ -38,7 +46,11 @@ export const Products = () =>
                         <img src={p.image} alt='' />
                         <h3>{p.title}</h3>
                         <p><strong>{"Rs  " + p.price}</strong></p>
-                        <button onClick={() => setPdetails(p)}>
+                        <button onClick={() => 
+                        {
+                            setPdetails(p);
+                             setFlag(1)
+                        }}>
                             Show Details
                         </button>
                     </div>                    
